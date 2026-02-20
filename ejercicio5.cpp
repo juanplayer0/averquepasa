@@ -4,7 +4,7 @@
 using namespace std;
 
 vector<int> dossuma(vector<int>& numeros, int target) {
-    mapa_nordenado<int, int> mapa;  
+    unordered_map<int, int> mapa;  
 
     for (int i = 0; i < numeros.size(); i++) {
         int complemento = target - numeros[i];
@@ -13,7 +13,7 @@ vector<int> dossuma(vector<int>& numeros, int target) {
         if (mapa.find(complemento) != mapa.end()) {
             return {mapa[complemento], i};
         }
-        
+
         mapa[numeros[i]] = i;
     }
 
