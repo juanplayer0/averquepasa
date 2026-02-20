@@ -1,1 +1,20 @@
+#include <iostream>
+using namespace std;
 
+int main(){
+    int a, b, residuo;
+
+    cout <<"ingrese el primer numero: ";
+    cin >> a;
+
+    cout <<"ingrese el primer numero: ";
+    cin >> b;
+
+    while (b !=0){
+        residuo = a % b;
+        a = b;
+        b = residuo;
+    }
+    cout <<"el maximo comun divisor es:"<<a<<endl;
+    return 0;
+}
