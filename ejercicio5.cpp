@@ -1,20 +1,32 @@
 #include <iostream>
+#include <vector>
+#include <unordered_map>
 using namespace std;
 
-int main(){
-    int a, b, residuo;
+vector<int> dossuma(vector<int>& numeros, int target) {
+    mapa_nordenado<int, int> mapa;  
 
-    cout <<"ingrese el primer numero: ";
-    cin >> a;
+    for (int i = 0; i < numeros.size(); i++) {
+        int complemento = target - numeros[i];
 
-    cout <<"ingrese el primer numero: ";
-    cin >> b;
-
-    while (b !=0){
-        residuo = a % b;
-        a = b;
-        b = residuo;
+        
+        if (mapa.find(complemento) != mapa.end()) {
+            return {mapa[complemento], i};
+        }
+        
+        mapa[numeros[i]] = i;
     }
-    cout <<"el maximo comun divisor es:"<<a<<endl;
+
+    return {}; 
+}
+
+int main() {
+    vector<int> numeros = {2, 7, 11, 15};
+    int target = 9;
+
+    vector<int> resultado = dossuma(numeros, target);
+
+    cout << "Indices: [" << resultado[0] << ", " << resultado[1] << "]" << endl;
+
     return 0;
 }
