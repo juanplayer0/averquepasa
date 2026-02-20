@@ -15,6 +15,6 @@ int main(){
         a = b;
         b = residuo;
     }
-    cout <<"el minimo comun divisor es:"<<a<<endl;
-    return0;
+    cout <<"el maximo comun divisor es:"<<a<<endl;
+    return 0;
 }
